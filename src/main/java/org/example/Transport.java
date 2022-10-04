@@ -1,6 +1,6 @@
 package org.example;
 
-public class Transport {
+public abstract class Transport {
     private String name;
     private int capacity;
     private int speed;
@@ -13,9 +13,7 @@ public class Transport {
         this.costOfKm = costOfKm;
     }
 
-    public float getPrice(City city){
-        return city.getDistanceKm() * getCostOfKm();
-    }
+    public abstract float getPrice(City city);
 
     public String getName() {
         return name;
