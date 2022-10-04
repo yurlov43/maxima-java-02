@@ -46,4 +46,10 @@ public abstract class Transport {
     public void setCostOfKm(float costOfKm) {
         this.costOfKm = costOfKm;
     }
+
+    public boolean isShippingAvailable(City city, int weight, int hours){
+        return getPrice(city) > 0 && getCapacity() >= weight && city.getDistanceKm() / getSpeed() >= hours
+                ? true
+                : false;
+    }
 }
