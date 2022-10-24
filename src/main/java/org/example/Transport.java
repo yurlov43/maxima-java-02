@@ -51,7 +51,7 @@ public abstract class Transport implements Repairable {
 
     public boolean isShippingAvailable(City city, int weight, int hours){
         return !isRepairing() && getPrice(city) > 0 &&
-                getCapacity() >= weight && city.getDistanceKm() / getSpeed() >= hours;
+                getCapacity() >= weight && city.getDistanceKm() / getSpeed() <= hours;
     }
 
     @Override
