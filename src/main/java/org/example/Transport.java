@@ -1,5 +1,6 @@
 package org.example;
 
+
 public abstract class Transport implements Repairable {
     private String name;
     private int capacity;
@@ -7,6 +8,9 @@ public abstract class Transport implements Repairable {
     private float costOfKm;
 
     private boolean repair;
+
+    public Transport() {
+    }
 
     public Transport(String name, int capacity, int speed, float costOfKm) {
         this.name = name;

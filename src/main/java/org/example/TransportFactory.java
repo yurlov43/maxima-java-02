@@ -2,18 +2,16 @@ package org.example;
 
 public class TransportFactory {
     public Transport getTransport(City city, int weight, int hours) {
-        Transport transport;
         int speed = getSpeed(city.getDistanceKm(), hours);
         int capacity = getCapacity(weight);
 
         if (speed <= 40 && city.isOnWater()) {
-            transport = getShip(capacity, speed);
-        } else if (speed >= 120 && city.isHasAirport()) {
-            transport = getPlane(capacity, speed);
-        } else {
-            transport = getTruck(capacity, speed);
+            return getShip(capacity, speed);
         }
-        return transport;
+        if (speed >= 120 && city.hasAirport()) {
+            return getPlane(capacity, speed);
+        }
+        return getTruck(capacity, speed);
     }
     private int getCapacity(int weight) {
         int multipleValue = 500;
