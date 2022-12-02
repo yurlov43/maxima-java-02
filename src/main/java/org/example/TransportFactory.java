@@ -15,12 +15,16 @@ public class TransportFactory {
     }
     private int getCapacity(int weight) {
         int multipleValue = 500;
-        return weight <= multipleValue ? multipleValue : weight + (multipleValue - weight % multipleValue);
+        return weight % multipleValue == 0 ?
+                weight :
+                multipleValue * (weight / multipleValue + 1);
     }
     private int getSpeed(int distance, int hours) {
         int speed = distance / hours;
         int multipleValue = 10;
-        return speed <= multipleValue ? multipleValue : speed + (multipleValue - speed % multipleValue);
+        return speed % multipleValue == 0 ?
+                speed :
+                multipleValue * (speed / multipleValue + 1);
     }
     private Ship getShip(int capacity, int speed) {
         String shipName = "Ship";
